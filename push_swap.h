@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   step.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shintarokohtake <shintarokohtake@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 21:27:29 by shintarokoh       #+#    #+#             */
-/*   Updated: 2025/07/31 21:46:54 by shintarokoh      ###   ########.fr       */
+/*   Created: 2025/07/31 21:29:32 by shintarokoh       #+#    #+#             */
+/*   Updated: 2025/07/31 21:29:35 by shintarokoh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#ifndef SOLONG_H
+# define SOLONG_H
 
-typedef	struct s_node
-{
-	int	value;
-	struct s_node	*next;
-}	t_node;
+# include "./ft_printf/includes/ft_printf.h"
+# include "./libft/includes/libft.h"
+# include <stdbool.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
 
-typedef	struct	s_stack
-{
-	t_node	*top;
-	int	size;
-	char	name;
-}	t_stack;
+#endif
