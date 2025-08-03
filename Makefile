@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shintarokohtake <shintarokohtake@studen    +#+  +:+       +#+         #
+#    By: skohtake <skohtake@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 21:20:28 by shintarokoh       #+#    #+#              #
-#    Updated: 2025/08/01 08:19:42 by shintarokoh      ###   ########.fr        #
+#    Updated: 2025/08/03 21:19:40 by skohtake         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,15 @@ all : $(NAME)
 step : step.c
 # 	make -C ../libft
 # 	make -C ../libft clean
-	$(CC) -o $@ $(CFLAGS) $^ -L./libft -lft -L./ft_printf -lftprintf
+	$(CC) -o $@ $(CFLAGS) $^ -L./ft_printf -lftprintf
+# 	$(CC) -o $@ $(CFLAGS) $^ -L./ft_printf -lftprintf -L./libft -lft 
 
 linker :
-	make -C ./libft re
 	make -C ./ft_printf re
-	make -C ./libft clean
 	make -C ./ft_printf clean
+# 	make -C ./libft re
+# 	make -C ./libft clean
+
 
 clean :
 	rm -f *.o
