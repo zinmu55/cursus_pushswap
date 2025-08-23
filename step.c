@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   step.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shintarokohtake <shintarokohtake@studen    +#+  +:+       +#+        */
+/*   By: skohtake <skohtake@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 21:27:29 by shintarokoh       #+#    #+#             */
-/*   Updated: 2025/08/14 16:44:36 by shintarokoh      ###   ########.fr       */
+/*   Updated: 2025/08/23 15:29:21 by skohtake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	t_node	*top_ptr;
-	int	size;
-	char	*name;
-}	t_stack;
+	t_node			*top_ptr;
+	int				size;
+	char			*name;
+}					t_stack;
 
 t_node	*create_node(int value)
 {
@@ -81,13 +81,13 @@ void	double_free_stack(t_stack *stack_ptr)
 t_node	*pop_from_stack_top(t_stack *stack)
 {
 	t_node	*popping_node;
-	
-	if(!stack || !(stack->top_ptr))
-		return NULL;
+
+	if (!stack || !(stack->top_ptr))
+		return (NULL);
 	popping_node = stack->top_ptr;
 	stack->top_ptr = (stack->top_ptr)->next;
 	stack->size--;
-	return(popping_node);
+	return (popping_node);
 }
 
 t_stack	*init_stack(char *name)
@@ -100,17 +100,31 @@ t_stack	*init_stack(char *name)
 	stack->top_ptr = NULL;
 	stack->size = 0;
 	stack->name = name;
-	return(stack);
+	return (stack);
+}
+
+void	sa(t_stack *a)
+{
+	t_node	*first;
+	t_node	*second;
+
+	if (a->size < 2)
+		return ;
+	first = a->top_ptr;
+	second = a->top_ptr->next;
+	first->next = second->next;
+	second->next = first;
+	a->top_ptr = second;
 }
 
 int	main(void)
 {
 	t_stack	*tmp_stack;
 	t_node	*tmp_node;
-	
+
 	// tmp_stack = (t_stack *)malloc(sizeof(t_stack));
 	tmp_stack = init_stack("step_stack");
-	if(!tmp_stack)
+	if (!tmp_stack)
 	{
 		return (1);
 	}
@@ -140,24 +154,34 @@ int	main(void)
 	free(tmp_node);
 	ft_printf(" --- current stack size : %d \n", tmp_stack->size);
 	my_print_all_nodes_in_stack(tmp_stack);
-	ft_printf(" popped node value : %d \n", (pop_from_stack_top(tmp_stack))->value);
+	ft_printf(" popped node value : %d \n",
+			(pop_from_stack_top(tmp_stack))->value);
 	double_free_stack(tmp_stack);
 	return (0);
 }
 
-
-
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        :::      ::::::::   */
-// /*   step.c                                             :+:      :+:    :+:   */
-// /*                                                    +:+ +:+         +:+     */
-// /*   By: skohtake <skohtake@student.42.fr>          +#+  +:+       +#+        */
-// /*                                                +#+#+#+#+#+   +#+           */
-// /*   Created: 2025/07/31 21:27:29 by shintarokoh       #+#    #+#             */
-// /*   Updated: 2025/08/03 21:36:14 by skohtake         ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
+//
+	/* ************************************************************************** */
+//
+	/*                                                                            */
+//
+	/*                                                        :::      ::::::::   */
+//
+	/*   step.c                                             :+:      :+:    :+:   */
+// /*                                                    +:+ +:+        
+	+:+     */
+// /*   By: skohtake <skohtake@student.42.fr>          +#+  +:+      
+	+#+        */
+// /*                                                +#+#+#+#+#+  
+	+#+           */
+//
+	/*   Created: 2025/07/31 21:27:29 by shintarokoh       #+#    #+#             */
+//
+	/*   Updated: 2025/08/03 21:36:14 by skohtake         ###   ########.fr       */
+//
+	/*                                                                            */
+//
+	/* ************************************************************************** */
 
 // #include "./push_swap.h"
 
